@@ -1,0 +1,81 @@
+#h1{
+    text-align: center;
+    color: white;
+}
+body{
+    background-color: #111111;
+}
+
+.sidenav{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color:#111119 ;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+.sidenav a {
+    padding:8px 8px 8px 8px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+.sidenav a:hover{
+    color: red;
+
+}
+.sidenav .closebtn{
+    position: absolute;
+    top: 0;
+    right: 0px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+#span{
+    position: fixed;
+    right: 0;
+    top: 0;
+
+
+}
+#mySidenav{
+
+    text-align: right;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav{padding-top: 15px;}
+    .sidenav a{font-size: 18px;}}
+h2{
+    color:white;
+    font-size: 30px;
+    padding-top: 1000px;
+}
+#picture{
+  position: static;
+    width: 640px;
+    height: 600px;
+    float: left;
+    display: block;
+}
+#Om\ Mig{
+
+}
+#Personlig_Info{
+    position: relative;
+    padding-left: 10px;
+    left: 8px;
+    color: white;
+}
+
+#Opgaver{
+    position: relative;
+    top:200px;
+
+}
