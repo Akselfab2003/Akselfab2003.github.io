@@ -64,9 +64,9 @@ h2{
     float: left;
     display: block;
 }
-#Om\ Mig{
+/*#Om\ Mig{
 
-}
+}*/
 #Personlig_Info{
     position: relative;
     padding-left: 10px;
@@ -78,4 +78,127 @@ h2{
     position: relative;
     top:200px;
 
+}
+#TestH1{
+   position: absolute;
+    text-align: center;
+    left: 500px;
+    margin-top: 50px;
+    z-index: 0;
+}
+#C-Sharp_img{
+    margin-top: 500px;
+ width: 300px;
+ 
+}
+#img_Card_C-Sharp{
+    position: relative;
+    width: 235px;
+}
+#card1{
+    position: relative;
+    border-radius: 15px 15px 15px 15px;
+    background-color: silver;
+    margin-right: 10px;
+    transition: all .4s ease-in-out;
+}
+#card_box{
+    border-radius: 2,2,2,2;
+    border: #111111;
+ position: relative;
+
+}
+#card2{
+    position: relative;
+    float: right;
+    border-radius: 15px 15px 15px 15px;
+    background-color: silver;
+    margin-right: 10px;
+    top: 10px;
+    transition: all .4s ease-in-out;
+}
+#card3{
+    position: relative;
+    float: right;
+    border-radius: 15px 15px 15px 15px;
+    background-color: silver;
+    margin-right: 10px;
+    top: 20px;
+    transition: all .4s ease-in-out;
+}
+#card1:hover,#card2:hover,#card3:hover{
+    left: -40px;
+}
+#flex-container{
+  margin-top: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+}
+.col-sm-3{
+    left: 50px;
+}
+/*top: 160px;
+    left: 450px;
+*/
+#cv_billede_Om-mig{display: flex;
+    width: 300px;
+    float: left;
+}
+#OmMigDiv{
+    float: right;
+}
+.row{
+    float: right;
+    width: 85%;
+}
+#om-mig_Header{
+    padding-left: 15px;
+}
+#HeaderParagraph{
+    text-align: center;
+    font-size: 30px;
+    position: absolute;
+    left: 500px;
+    z-index: 0;
+    bottom: 580px;
+}
+#container{
+    position: relative;
+    text-align: center;
+}
+#Home_Picture{
+    margin-top: 135px;
+}
+#Integer{
+color:rgba(33,20,152,255);;
+}
+#stringLabel{
+    color: rgba(33,20,152,255);
+}
+#stringArray{
+position: relative;
+    color: rgba(33,20,152,255);
+left: 100;
+}
+#Info{
+    font-size: 20px;
+   margin-top: 150px;
+  
+}
+#Header2{
+    position: relative;
+    justify-content: center;
+    text-align: center;
+}
+#Alder{
+    position: relative;
+    left: 200px;
+}
+#Stilling{position: relative;
+    left: 200px;
+}
+#StillingsArray{position: relative;
+    left: 200px;
 }
