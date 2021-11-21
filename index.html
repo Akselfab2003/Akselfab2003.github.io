@@ -21,11 +21,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
   <!-- Nav tabs -->
+  <!--
   <ul class="nav nav-pils" id="navId">
       <li class="nav-item">
           <a class="nav-link active" target="_parent" href="#TestH1" >Home</a>
       </li>
-     <!-- <li class="nav-item dropdown">
+      <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
           <div class="dropdown-menu">
               <a class="dropdown-item" href="#tab2Id">Home</a>
@@ -34,7 +35,7 @@
               <a class="dropdown-item" href="#tab4Id">Opgaver</a>
           </div>
       </li>
-    -->
+
       <li class="nav-item">
           <a class="nav-link active" id="Om_MIG_Link" target="_parent" data-toggle="tab" href="#card2">Om Mig</a>
       </li>
@@ -42,8 +43,8 @@
           <a class="nav-link active" href="#card1">Opgaver</a>
       </li>
   </ul>
-
-  <!-- Tab panes -->
+-->
+  <!-- Tab panes --><!--
 <div class="tab-content">
       <div class="tab-pane fade show active" id="tab1Id" role="tabpanel"></div>
       <div class="tab-pane fade" id="tab2Id" role="tabpanel"></div>
@@ -58,18 +59,35 @@
           $(this).tab('show');
       });
   </script>
+  -->
   <div id="container">
     <h1 id="TestH1" class="display-2">Aksel Munch Fabricius</h1>
     <img src="redigerert klistermærke.png" id="Home_Picture" alt="Billede af Aksel Munch Fabricius">
     <p class="lead" id="HeaderParagraph">I'm a Developer</p>
   </div>
 <div id="Info">
-  <h5 id="Header2" class="display-4">Info</h2>
+  <h5 id="Header2" class="display-4">About me</h5>
   <ul class="list-unstyled">
-    <li id="Alder" ><label id="Integer">int</label> Alder = 18</li>
-    <li id="Stilling"><label id="stringLabel">string</label> Stilling = "Studerende som Eux Datateknikker med Speciale i programmering
-      og læreplads søgende"</li>
-    <li id="StillingsArray"><label id="stringArray">string</label>[] Sprog = {"Dansk","Engelsk"}</li>
+    <li id="Alder" ><label id="Integer">int</label> Age = 18;</li>
+      <li class="InfoCode"><label  style="color: rgba(33,20,152,255)">int</label> telephone = +4520876418;</li>
+      <li class="InfoCode"><label  style="color: rgba(33,20,152,255)">string</label> Mail = "<a href="mailto:akselfabricius@gmail.com">akselfabricius@gmail.com</a>";</li>
+    <li id="Stilling"><label id="stringLabel">string</label> Position = "studying as Eux Datateknikker with a special in programming
+        and apprenticeship seeking";</li>
+    <li id="StillingsArray"><label id="stringArray">string</label>[] Languages = {"Danish","English"};</li>
+      <li id="RealLanguages"><label id="RealLanguagesLabel" style="color: rgba(33,20,152,255)">string</label>[] RealLanguages = {"C#","HTML","CSS","Javascript"};</li>
+      <li class="InfoCode"><label  style="color: rgba(33,20,152,255)">var</label> certificates = { <label style="position:relative; left:648px; color: rgb(0,130,0)">//Javascript enabled</label> <br>
+          "'Responsive Web Design' from freecodecamp.org" : true,<br>
+          "'Complete Beginner' from TryHackMe.com" : undefined,<label style="position:relative; left:316px; color: rgb(0,130,0)">//Ongoing</label><br>
+          "'JavaScript Algorithms and Data Structures' from freecodecamp.org" : undefined<label style="position:relative; left:100px; color: rgb(0,130,0)">//Ongoing</label><br>
+          };</li>
+      <li class="InfoCode"><label  style="color: rgba(33,20,152,255)">var</label> knowledgeAbout = ["MSSQL (Microsoft SQL Server)","CentOS","C# operator overloading","UML og OOAD","Windows Forms","WPF"]</li>
+
+      <li class="InfoCode" style="white-space:normal"><label  style="color: rgba(33,20,152,255)">var</label> SpareTime = "My spare time i mostly use to play computer with my friends. It was also one of the main things for me when i was on boarding school,
+          <br> where i was teamleader for one of the boarding school's esport team's both inside the game and outside the game.
+          <br> If i wasn't playing with my friends, i was following in Formel 1 or watching Youtube where i watch all from from videos about programming to videos about Games.
+          <br> However for the most part im watching something new that im trying to learn or a way to improve in games or programming.
+          <br> I also like to relax and just play board games with my family or play football or handball when the chance is there."
+      </li>
   </ul>
 </div>
   
@@ -77,19 +95,20 @@
  
  <!--<img id="C-Sharp_img" src="C-Sharp.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="C-Sharp logo">-->
  <!--<img id="C-Sharp_img" src="C-Sharp.png" class="" style="vertical-align: middle" alt="C-Sharp logo">-->
+
 <div id="flex-container"> 
- <div class="d-flex position-relative" name="test"id="card1">
-   <img class="flex-shrink-0 me-3" src="C-Sharp.png" id="img_Card_C-Sharp" alt="C Sharp picture">
-   <div class="card-body" id="card_box">
+ <div class="d-flex position-relative" id="card1">
+   <img class="flex-shrink-0 me-3" src="C-Sharp.png" style="width: 235px"  alt="C Sharp picture">
+   <div class="card-body">
      <h4 class="card-title">Tre Cases i C#</h4>
      <p class="card-text">Body</p>
      <a href="#" class="stretched-link">Link to github</a>
    </div>
  </div>
-<base name="Card2FF">
+
  <div class="d-flex position-relative" id="card2">
-    <img class="flex-shrink-0 me-3" src="C-Sharp.png" id="img_Card_C-Sharp" alt="C Sharp picture">
-    <div class="card-body" id="card_box">
+    <img class="flex-shrink-0 me-3" src="C-Sharp.png" style="width: 235px" alt="C Sharp picture">
+    <div class="card-body" >
       <h4 class="card-title">Tre Cases i C#</h4>
       <p class="card-text">Body</p>
       <a href="#" class="stretched-link">Link to github</a>
@@ -97,8 +116,8 @@
   </div>
 
   <div class="d-flex position-relative" id="card3">
-    <img class="flex-shrink-0 me-3" src="C-Sharp.png" id="img_Card_C-Sharp" alt="C Sharp picture">
-    <div class="card-body" id="card_box">
+    <img class="flex-shrink-0 me-3" src="C-Sharp.png" style="width: 235px" alt="C Sharp picture">
+    <div class="card-body" >
       <h4 class="card-title">Tre Cases i C#</h4>
       <p class="card-text">Body</p>
       <a href="#" class="stretched-link">Link to github</a>
@@ -107,59 +126,15 @@
 </div>
 <br>
 
-<!--/<dl class="row">
-  <dt class="col-sm-3">test</dt>
-  <dd class="col-sm-9">2</dd>
-  <dt class="col-sm-3">3</dt>
-  <dd class="col-sm-9">
-    <p>test</p>
-    <p>test</p>
-  </dd>
-  <dt class="col-sm-3">test</dt>
-  <dd class="col-sm-9">test</dd>
-
-  <dt class="col-sm-3 text-truncate">test</dt>
-  <dd class="col-sm-9">test</dd>
-
-  <dt class="col-sm-3">test</dt>
-  <dd class="col-sm-9">
-    <dl class="row">
-      <dt class="col-sm-4">test</dt>
-      <dd class="col-sm-8"> test</dd>
-    </dl>
-  </dd>
-
-</dl>
--->
-<br>
-<div id="OmMigDiv">
-  <h5 id="om-mig_Header">Om Mig</h5>
-  <img  src="CV billede.jpg" id="cv_billede_Om-mig">
-<dl class="row">
-  
-  <dt class="col-sm-3">Navn</dt>
-  <dd class="col-sm-9">Aksel Munch Fabricius</dd>
-
-  <dt class="col-sm-3">Alder</dt>
-  <dd class="col-sm-9">18</dd>
-
-  <dt class="col-sm-3">Stilling</dt>
-  <dd class="col-sm-9">Studerende som Eux Datateknikker med Speciale i programmering
-    og læreplads søgende</dd>
-
-  <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
-  <dd class="col-sm-9">This can be useful when space is tight. Adds an ellipsis at the end.</dd>
-
-  <dt class="col-sm-3">Nesting</dt>
-  <dd class="col-sm-9">
-    <dl class="row">
-      <dt class="col-sm-4">Nested definition list</dt>
-      <dd class="col-sm-8">I heard you like definition lists. Let me put a definition list inside your definition list.</dd>
-    </dl>
-  </dd>
-</dl>
-</div>
-
-
-
+  <ul class="nav" id="navId">
+      <li class="nav-item">
+          <a class="nav-link active" target="_parent" href="#TestH1" >Home</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link active" id="Om_MIG_Link" href="#Info">About Me</a>
+      </li>
+      <li class="nav-item active">
+          <a class="nav-link active" href="#flex-container">Opgaver</a>
+      </li>
+  </ul>
   </html>
