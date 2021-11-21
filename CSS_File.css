@@ -33,7 +33,7 @@ body{
 .sidenav .closebtn{
     position: absolute;
     top: 0;
-    right: 0px;
+    right: 0;
     font-size: 36px;
     margin-left: 50px;
 }
@@ -91,10 +91,6 @@ h2{
  width: 300px;
  
 }
-#img_Card_C-Sharp{
-    position: relative;
-    width: 235px;
-}
 #card1{
     position: relative;
     border-radius: 15px 15px 15px 15px;
@@ -102,12 +98,7 @@ h2{
     margin-right: 10px;
     transition: all .4s ease-in-out;
 }
-#card_box{
-    border-radius: 2,2,2,2;
-    border: #111111;
- position: relative;
 
-}
 #card2{
     position: relative;
     float: right;
@@ -180,7 +171,6 @@ color:rgba(33,20,152,255);;
 #stringArray{
 position: relative;
     color: rgba(33,20,152,255);
-left: 100;
 }
 #Info{
     font-size: 20px;
@@ -192,6 +182,10 @@ left: 100;
     justify-content: center;
     text-align: center;
 }
+.InfoCode{
+    position: relative;
+    left: 200px;
+}
 #Alder{
     position: relative;
     left: 200px;
@@ -202,3 +196,13 @@ left: 100;
 #StillingsArray{position: relative;
     left: 200px;
 }
+#RealLanguages{position: relative;
+    left: 200px;
+}
+#navId{
+    position: fixed;
+    top:0;
+    overflow: hidden;
+
+}
+
