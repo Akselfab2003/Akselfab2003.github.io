@@ -208,7 +208,6 @@ h2{
 }
 @media screen and (max-width:1024px){
     #Home_Picture{
-    width: -50%;
    margin-left: 50%;
     
     }
