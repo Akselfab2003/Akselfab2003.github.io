@@ -58,7 +58,7 @@ h2{
     padding-top: 1000px;
 }
 #picture{
-  position: static;
+    position: static;
     width: 640px;
     height: 600px;
     float: left;
@@ -80,7 +80,7 @@ h2{
 
 }
 #TestH1{
-   position: absolute;
+    position: absolute;
     text-align: center;
     left: 500px;
     margin-top: 50px;
@@ -88,8 +88,8 @@ h2{
 }
 #C-Sharp_img{
     margin-top: 500px;
- width: 300px;
- 
+    width: 300px;
+
 }
 #card1{
     position: relative;
@@ -121,11 +121,11 @@ h2{
     left: -40px;
 }
 #flex-container{
-  margin-top: 1000px;
+    margin-top: 1000px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    
+
 }
 .col-sm-3{
     left: 50px;
@@ -163,19 +163,19 @@ h2{
     margin-top: 135px;
 }
 #Integer{
-color:rgba(33,20,152,255);;
+    color:rgba(33,20,152,255);;
 }
 #stringLabel{
     color: rgba(33,20,152,255);
 }
 #stringArray{
-position: relative;
+    position: relative;
     color: rgba(33,20,152,255);
 }
 #Info{
     font-size: 20px;
-   margin-top: 150px;
-  
+    margin-top: 150px;
+    width: 100%;
 }
 #Header2{
     position: relative;
@@ -185,6 +185,7 @@ position: relative;
 .InfoCode{
     position: relative;
     left: 200px;
+   
 }
 #Alder{
     position: relative;
@@ -205,4 +206,80 @@ position: relative;
     overflow: hidden;
 
 }
+@media screen and (max-width:1024px){
+    #Home_Picture{
+    width: -50%;
+   margin-left: 50%;
+    
+    }
+    #TestH1{
+   text-align: center;
+   width: 812px;
+   left: -5px;
+margin-left: 20px;
+    }
+    #HeaderParagraph{
+    width: 812px;
+    text-align: center;
+    left: -280px;                      
+    }
+    .InfoCode{
+        width: 812px;
+        font-size: 18px;
+    }
+    #Info{
+        margin-left: -160px;
+    }
+    #Header2{
+        width: 812px;
+  left: 50%;
+    }
+    #Comment1{
+      margin-left: -200px;
+    }
+    #Comment2{
+        margin-left: -90px;
+      }
+      #Comment3{
+        margin-left: -70px;
+      }
+      #TimeLine{
+width: 812px;
+align-self: center;
+       margin-left: -40px;
+       
+      }
+     #flex-container{
+         width: 812px;
+         position: relative;
+    left: 40px;
+        
+     }
+
+    
+}
+#TimeLine{
+    margin-top: 500px;
+
+}
+.card-body_left-side{
+    position: relative;
+    background-color: silver;
+  margin-left: -280px;
+  width: 250px;
+  border-radius: 15px 15px 15px 15px;
+}
+.card-body_right-side{
+    position: relative;
+    background-color: silver;
+    margin-left: 30px;
+    width: 400px;
+    border-radius: 15px 15px 15px 15px;
+}
+#Projects_Header{
+  position: relative;
+  bottom: 100px;
+  right: 845px;
+}
+
 
