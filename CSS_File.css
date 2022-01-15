@@ -97,6 +97,7 @@ h2{
     background-color: silver;
     margin-right: 10px;
     transition: all .4s ease-in-out;
+    width: 834px ;
 }
 
 #card2{
@@ -107,6 +108,7 @@ h2{
     margin-right: 10px;
     top: 10px;
     transition: all .4s ease-in-out;
+    width: 834px ;
 }
 #card3{
     position: relative;
@@ -116,6 +118,8 @@ h2{
     margin-right: 10px;
     top: 20px;
     transition: all .4s ease-in-out;
+    width: 834px ;
+    height: 168.8px;
 }
 #card1:hover,#card2:hover,#card3:hover{
     left: -40px;
@@ -123,8 +127,8 @@ h2{
 #flex-container{
     margin-top: 1000px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+   flex-direction: column;
+    align-items: center;
 
 }
 .col-sm-3{
@@ -206,9 +210,10 @@ h2{
     overflow: hidden;
 
 }
+/*
 @media screen and (max-width:1024px){
     #Home_Picture{
-    width: -50%;
+   width: -50%;
    margin-left: 50%;
     
     }
@@ -249,15 +254,18 @@ align-self: center;
        margin-left: -40px;
        
       }
+      
      #flex-container{
-         width: 812px;
+        width: 812px;
          position: relative;
     left: 40px;
         
      }
 
-    
 }
+*/
+
+
 #TimeLine{
     margin-top: 500px;
 
@@ -278,8 +286,9 @@ align-self: center;
 }
 #Projects_Header{
   position: relative;
+ text-align: center;
   bottom: 100px;
-  right: 845px;
+  
 }
 
 
