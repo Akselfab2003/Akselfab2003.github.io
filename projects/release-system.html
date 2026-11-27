@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Release system — {name}</title>
+    <meta
+      name="description"
+      content="Case study: automating a 40+ step manual release process into an Azure Pipeline at HBK."
+    />
+    <script>
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/style.css" />
+  </head>
+  <body data-page="work" data-base="../">
+    <div id="nav"></div>
+    <main id="main">
+      <section class="cs-hero">
+        <div class="wrap">
+          <nav class="crumbs">
+            <a href="../index.html#work">Work</a><span>/</span><span>01</span>
+          </nav>
+          <span class="label rv"
+            >Case study · HBK — Hottinger Brüel &amp; Kjær</span
+          >
+          <h1 class="rv" style="margin-top: 14px">
+            Release <span class="o">system</span>
+          </h1>
+          <p class="lede rv d1">
+            Releasing HBK's software products meant working through more than 40
+            manual steps. I replaced the process with a CLI application that
+            became the core of an Azure Pipeline — now a release is seven inputs
+            and a button.
+          </p>
+          <dl class="cs-meta rv d2">
+            <div>
+              <dt>Role</dt>
+              <dd>Developer (apprentice)</dd>
+            </div>
+            <div>
+              <dt>Context</dt>
+              <dd>HBK software factory</dd>
+            </div>
+            <div>
+              <dt>Stack</dt>
+              <dd>.NET · SOAP · WCF · Azure Pipelines</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>Delivered</dd>
+            </div>
+          </dl>
+          <div class="metrics" style="--cols: 3">
+            <div class="stat rv">
+              <div class="v">
+                <span class="from">40+</span><span data-count="0">0</span>
+              </div>
+              <div class="k">manual steps per release</div>
+            </div>
+            <div class="stat rv d1">
+              <div class="v" data-count="7">0</div>
+              <div class="k">inputs to start a release</div>
+            </div>
+            <div class="stat rv d2">
+              <div class="v" data-count="200">0<small>+</small></div>
+              <div class="k">vendor calls, each retried &amp; verified</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <article class="cs-body rv">
+          <span class="label">The problem<b>Before</b></span>
+          <div class="prose">
+            <p>
+              Each release was a long checklist:
+              <strong>40+ manual steps</strong> and
+              <strong>15+ hand adjustments</strong> spread across Excel sheets
+              and .bat scripts. It was slow, and every manual edit was a chance
+              for one release to come out differently from the last.
+            </p>
+            <p>
+              Part of the process ran against an external vendor's service,
+              integrated through SOAP and WCF.
+            </p>
+          </div>
+        </article>
+
+        <div class="visual rv">
+          <div class="v-head">
+            <h3>Before → after</h3>
+            <span class="label">From checklist to pipeline</span>
+          </div>
+          <div class="ba">
+            <div class="col">
+              <h4>Before · manual checklist</h4>
+              <div class="manual" id="manual"></div>
+            </div>
+            <div class="col">
+              <h4>After · one pipeline run</h4>
+              <div class="inputs">
+                <span>Product versions <em>input</em></span>
+                <span>Names &amp; identifiers <em>input</em></span>
+                <span>… 5 more release parameters <em>input</em></span>
+                <span style="border-color: var(--accent)"
+                  >Run Azure Pipeline → CLI does the rest
+                  <em>0 manual steps</em></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <article class="cs-body rv">
+          <span class="label">What I built<b>Solution</b></span>
+          <div class="prose">
+            <p>
+              I built a <strong>CLI application</strong> that performs the full
+              release, and made it the foundation of an
+              <strong>Azure Pipeline</strong>. Product teams and managers start
+              a release by filling in seven inputs — versions, names and similar
+              — and nothing else is done by hand.
+            </p>
+            <p>
+              The most demanding part was the external SOAP integration. The API
+              had <strong>no batch operations</strong>, so every item became its
+              own call — more than 200 per release.
+            </p>
+            <ul>
+              <li>
+                Worked through the generated SOAP client code to pinpoint where
+                calls failed.
+              </li>
+              <li>Added retry logic around each individual call.</li>
+              <li>
+                Verified the result of every call, so the pipeline knows the
+                release actually landed.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="visual rv" id="callvis">
+          <div class="v-head">
+            <h3>Retry &amp; verify</h3>
+            <button class="btn" id="replay" style="padding: 9px 16px">
+              Replay ↻
+            </button>
+          </div>
+          <div class="flow">
+            <div class="node"><b>7 inputs</b><span>release form</span></div>
+            <span class="ar"></span>
+            <div class="node"><b>Pipeline</b><span>Azure Pipelines</span></div>
+            <span class="ar"></span>
+            <div class="node hot"><b>CLI</b><span>retry + verify</span></div>
+            <span class="ar"></span>
+            <div class="node">
+              <b>Vendor API</b><span>SOAP · no batch</span>
+            </div>
+          </div>
+          <div class="calls" id="calls"></div>
+          <div class="call-stats">
+            <span
+              ><i class="dot" style="background: var(--ok)"></i
+              ><b id="s-ok">0</b>verified</span
+            >
+            <span
+              ><i class="dot" style="background: var(--accent)"></i
+              ><b id="s-retry">0</b>retried</span
+            >
+            <span
+              ><i class="dot" style="background: var(--bg-3)"></i
+              ><b id="s-left">200</b>pending</span
+            >
+          </div>
+          <p class="caption">
+            Illustration of the approach: 200 individual calls, each retried on
+            failure and verified before moving on. Failure rate is simulated.
+          </p>
+        </div>
+
+        <article class="cs-body rv">
+          <span class="label">Outcome<b>Result</b></span>
+          <div class="prose">
+            <p>
+              Releases went from a long manual checklist to a pipeline run with
+              <strong>zero manual steps</strong>. Less manual work, and releases
+              that are done the same way every time, by anyone on the team.
+            </p>
+          </div>
+        </article>
+
+        <article class="cs-body rv">
+          <span class="label">Risk &amp; reliability<b>Designed for</b></span>
+          <div class="risk">
+            <span class="label">Failure mode: partial success</span>
+            <p>
+              With 200+ separate calls to a remote service and no batch
+              transaction, the dangerous outcome isn't a crash — it's a release
+              that half-succeeds without anyone noticing.
+            </p>
+            <p>
+              Retrying each call and verifying every result means the system
+              knows the release worked, rather than assuming it did.
+            </p>
+          </div>
+        </article>
+
+        <nav class="next" id="next" data-slug="release-system"></nav>
+      </div>
+    </main>
+    <div id="foot"></div>
+    <script src="../assets/site.js"></script>
+    <script>
+      /* manual checklist chips */
+      const m = document.getElementById("manual");
+      for (let i = 1; i <= 40; i++) {
+        const s = document.createElement("span");
+        s.textContent = `Step ${String(i).padStart(2, "0")}`;
+        m.append(s);
+      }
+      [
+        "+ more steps",
+        "+ Excel sheets",
+        "+ .bat scripts",
+        "+ 15 hand adjustments",
+      ].forEach((t) => {
+        const s = document.createElement("span");
+        s.textContent = t;
+        s.style.borderColor = "var(--accent)";
+        s.style.color = "var(--ink-2)";
+        m.append(s);
+      });
+
+      /* retry & verify simulation */
+      const grid = document.getElementById("calls"),
+        cells = [];
+      for (let i = 0; i < 200; i++) {
+        const c = document.createElement("i");
+        grid.append(c);
+        cells.push(c);
+      }
+      let run = 0;
+      function sim() {
+        const id = ++run;
+        let i = 0,
+          ok = 0,
+          retry = 0;
+        cells.forEach((c) => (c.className = ""));
+        const so = document.getElementById("s-ok"),
+          sr = document.getElementById("s-retry"),
+          sl = document.getElementById("s-left");
+        (function step() {
+          if (id !== run || i >= cells.length) return;
+          const c = cells[i];
+          c.className = "run";
+          const fail = Math.random() < 0.12;
+          setTimeout(
+            () => {
+              if (id !== run) return;
+              if (fail) {
+                c.className = "retry";
+                retry++;
+                sr.textContent = retry;
+                setTimeout(() => {
+                  if (id !== run) return;
+                  c.className = "ok";
+                  ok++;
+                  so.textContent = ok;
+                }, 260);
+              } else {
+                c.className = "ok";
+                ok++;
+                so.textContent = ok;
+              }
+              sl.textContent = 200 - i - 1;
+              i++;
+              step();
+            },
+            fail ? 140 : 28,
+          );
+        })();
+      }
+      document.getElementById("callvis").addEventListener("reveal", sim);
+      document.getElementById("replay").addEventListener("click", sim);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Automated trading bot — {name}</title>
+    <meta
+      name="description"
+      content="Side project: an automated trading bot, backtesting and options pricing — with a live Black–Scholes calculator."
+    />
+    <script>
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/style.css" />
+  </head>
+  <body data-page="work" data-base="../">
+    <div id="nav"></div>
+    <main id="main">
+      <section class="cs-hero">
+        <div class="wrap">
+          <nav class="crumbs">
+            <a href="../index.html#work">Work</a><span>/</span><span>05</span>
+          </nav>
+          <span class="label rv">Side project · Quantitative trading</span>
+          <h1 class="rv" style="margin-top: 14px">
+            Trading <span class="o">bot</span>
+          </h1>
+          <p class="lede rv d1">
+            An attempt at an automated trading bot that trades on market data
+            and technical indicators — and a deep dive into how quantitative
+            trading actually works.
+          </p>
+          <dl class="cs-meta rv d2">
+            <div>
+              <dt>Type</dt>
+              <dd>Personal side project</dd>
+            </div>
+            <div>
+              <dt>Stack</dt>
+              <dd>Python · Pandas · NumPy</dd>
+            </div>
+            <div>
+              <dt>Topics</dt>
+              <dd>Backtesting · Sharpe ratio</dd>
+            </div>
+            <div>
+              <dt>Instruments</dt>
+              <dd>Equities · options</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <article class="cs-body rv">
+          <span class="label">The idea<b>Goal</b></span>
+          <div class="prose">
+            <p>
+              The goal was a bot that could trade on the stock market by itself,
+              using information and indicators from the market as signals.
+              Getting there meant learning the field properly, not just wiring
+              up an API.
+            </p>
+          </div>
+        </article>
+
+        <div class="visual rv">
+          <div class="v-head">
+            <h3>Black–Scholes, live</h3>
+            <span class="label">Try it · European options</span>
+          </div>
+          <div class="bs">
+            <div class="sliders">
+              <div class="sl">
+                <label for="S">Stock price (S) <output id="oS"></output></label
+                ><input
+                  type="range"
+                  id="S"
+                  min="20"
+                  max="200"
+                  step="1"
+                  value="100"
+                />
+              </div>
+              <div class="sl">
+                <label for="K">Strike price (K) <output id="oK"></output></label
+                ><input
+                  type="range"
+                  id="K"
+                  min="20"
+                  max="200"
+                  step="1"
+                  value="105"
+                />
+              </div>
+              <div class="sl">
+                <label for="T"
+                  >Time to expiry (years) <output id="oT"></output></label
+                ><input
+                  type="range"
+                  id="T"
+                  min="0.02"
+                  max="3"
+                  step="0.01"
+                  value="0.5"
+                />
+              </div>
+              <div class="sl">
+                <label for="V">Volatility σ <output id="oV"></output></label
+                ><input
+                  type="range"
+                  id="V"
+                  min="0.05"
+                  max="1"
+                  step="0.01"
+                  value="0.25"
+                />
+              </div>
+              <div class="sl">
+                <label for="R">Risk-free rate r <output id="oR"></output></label
+                ><input
+                  type="range"
+                  id="R"
+                  min="0"
+                  max="0.1"
+                  step="0.0025"
+                  value="0.03"
+                />
+              </div>
+            </div>
+            <div>
+              <div class="prices">
+                <div class="call">
+                  <span class="label">Call price</span><b id="call">—</b>
+                </div>
+                <div class="put">
+                  <span class="label">Put price</span><b id="put">—</b>
+                </div>
+              </div>
+              <canvas id="curve"></canvas>
+              <div class="greeks">
+                <div>Δ call<b id="gD">—</b></div>
+                <div>Γ<b id="gG">—</b></div>
+                <div>Vega<b id="gV">—</b></div>
+                <div>Θ call /day<b id="gT">—</b></div>
+              </div>
+            </div>
+          </div>
+          <p class="caption">
+            Chart: call value (accent) and payoff at expiry (dashed) across
+            stock prices. The calculator runs entirely in your browser.
+          </p>
+        </div>
+
+        <article class="cs-body rv">
+          <span class="label">What I learned<b>Concepts</b></span>
+          <div class="prose">
+            <ul>
+              <li>
+                <strong>Backtesting</strong> — running a strategy against
+                historical data before risking anything on it.
+              </li>
+              <li>
+                <strong>Sharpe ratio</strong> — judging returns relative to the
+                risk taken to get them.
+              </li>
+              <li>
+                <strong>The Black–Scholes model</strong> — pricing options, as
+                in the calculator above.
+              </li>
+              <li>
+                <strong>Trading methods</strong> across securities and equities,
+                as well as options trading.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="cs-body rv">
+          <span class="label">Risk &amp; reliability<b>Perspective</b></span>
+          <div class="risk">
+            <span class="label">An adversarial environment</span>
+            <p>
+              Markets are hostile input by design: every edge you find is one
+              someone else is trying to take away. That makes a trading system a
+              good teacher in testing assumptions instead of trusting them.
+            </p>
+          </div>
+        </article>
+
+        <nav class="next" id="next" data-slug="trading-bot"></nav>
+      </div>
+    </main>
+    <div id="foot"></div>
+    <script src="../assets/site.js"></script>
+    <script>
+      /* Black–Scholes */
+      const erf = (x) => {
+        const s = Math.sign(x);
+        x = Math.abs(x);
+        const t = 1 / (1 + 0.3275911 * x);
+        return (
+          s *
+          (1 -
+            ((((1.061405429 * t - 1.453152027) * t + 1.421413741) * t -
+              0.284496736) *
+              t +
+              0.254829592) *
+              t *
+              Math.exp(-x * x))
+        );
+      };
+      const N = (x) => 0.5 * (1 + erf(x / Math.SQRT2)),
+        n = (x) => Math.exp((-x * x) / 2) / Math.sqrt(2 * Math.PI);
+      function bs(S, K, T, v, r) {
+        const d1 =
+            (Math.log(S / K) + (r + (v * v) / 2) * T) / (v * Math.sqrt(T)),
+          d2 = d1 - v * Math.sqrt(T);
+        const call = S * N(d1) - K * Math.exp(-r * T) * N(d2),
+          put = K * Math.exp(-r * T) * N(-d2) - S * N(-d1);
+        return {
+          call,
+          put,
+          delta: N(d1),
+          gamma: n(d1) / (S * v * Math.sqrt(T)),
+          vega: (S * n(d1) * Math.sqrt(T)) / 100,
+          theta:
+            ((-S * n(d1) * v) / (2 * Math.sqrt(T)) -
+              r * K * Math.exp(-r * T) * N(d2)) /
+            365,
+        };
+      }
+      const ids = ["S", "K", "T", "V", "R"],
+        el = Object.fromEntries(
+          ids.map((i) => [i, document.getElementById(i)]),
+        );
+      const cv = document.getElementById("curve"),
+        cx = cv.getContext("2d");
+      const css = (v) =>
+        getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+      function update() {
+        const [S, K, T, V, R] = ids.map((i) => +el[i].value);
+        document.getElementById("oS").textContent = S.toFixed(0);
+        document.getElementById("oK").textContent = K.toFixed(0);
+        document.getElementById("oT").textContent = T.toFixed(2);
+        document.getElementById("oV").textContent = (V * 100).toFixed(0) + "%";
+        document.getElementById("oR").textContent = (R * 100).toFixed(2) + "%";
+        const o = bs(S, K, T, V, R);
+        document.getElementById("call").textContent = o.call.toFixed(2);
+        document.getElementById("put").textContent = o.put.toFixed(2);
+        document.getElementById("gD").textContent = o.delta.toFixed(3);
+        document.getElementById("gG").textContent = o.gamma.toFixed(4);
+        document.getElementById("gV").textContent = o.vega.toFixed(3);
+        document.getElementById("gT").textContent = o.theta.toFixed(3);
+        // chart
+        const dpr = Math.min(devicePixelRatio || 1, 2),
+          r = cv.getBoundingClientRect(),
+          W = r.width,
+          H = r.height;
+        cv.width = W * dpr;
+        cv.height = H * dpr;
+        cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        cx.clearRect(0, 0, W, H);
+        const lo = Math.max(1, K * 0.4),
+          hi = K * 1.6,
+          pad = 14,
+          maxY = Math.max(hi - K, bs(hi, K, T, V, R).call) * 1.05;
+        const X = (s) => pad + ((s - lo) / (hi - lo)) * (W - pad * 2),
+          Y = (v) => H - pad - (v / maxY) * (H - pad * 2);
+        cx.strokeStyle = css("--line-2");
+        cx.lineWidth = 1;
+        cx.setLineDash([]);
+        cx.beginPath();
+        cx.moveTo(pad, H - pad);
+        cx.lineTo(W - pad, H - pad);
+        cx.stroke();
+        cx.setLineDash([5, 4]);
+        cx.strokeStyle = css("--mute");
+        cx.beginPath();
+        cx.moveTo(X(lo), Y(0));
+        cx.lineTo(X(K), Y(0));
+        cx.lineTo(X(hi), Y(hi - K));
+        cx.stroke();
+        cx.setLineDash([]);
+        cx.strokeStyle = css("--accent");
+        cx.lineWidth = 2.2;
+        cx.beginPath();
+        for (let i = 0; i <= 120; i++) {
+          const s = lo + ((hi - lo) * i) / 120,
+            v = bs(s, K, T, V, R).call;
+          i ? cx.lineTo(X(s), Y(v)) : cx.moveTo(X(s), Y(v));
+        }
+        cx.stroke();
+        if (S >= lo && S <= hi) {
+          cx.fillStyle = css("--ink");
+          cx.beginPath();
+          cx.arc(X(S), Y(o.call), 5, 0, 7);
+          cx.fill();
+        }
+        cx.fillStyle = css("--mute");
+        cx.font = "11px 'IBM Plex Mono', monospace";
+        cx.fillText("K = " + K, Math.min(X(K) + 6, W - 60), H - pad - 6);
+      }
+      ids.forEach((i) => el[i].addEventListener("input", update));
+      new ResizeObserver(update).observe(cv);
+      new MutationObserver(update).observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+      });
+      update();
+    </script>
+  </body>
+</html>
