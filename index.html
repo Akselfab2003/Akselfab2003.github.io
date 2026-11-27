@@ -1,167 +1,432 @@
 <!doctype html>
-<html lang="en">
-<head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-   <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
-    <link rel="stylesheet" href="CSS_File.css">
-    <!-- Bootstrap CSS -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{name} — Software Engineer</title>
+    <meta
+      name="description"
+      content="Software engineer working with C#/.NET, Azure, CI/CD and security. Selected work and case studies."
+    />
+    <script>
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230E0E0D'/%3E%3Crect x='22' y='22' width='7' height='7' fill='%23FF5A1F'/%3E%3C/svg%3E"
+    />
+  </head>
+  <body data-page="home" data-base="">
+    <div id="nav"></div>
 
-</head>
-<body>
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
-<!-- Nav tabs -->
-<!--
-<ul class="nav nav-pils" id="navId">
-    <li class="nav-item">
-        <a class="nav-link active" target="_parent" href="#TestH1" >Home</a>
-    </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu">
-            <a class="dropdown-item" href="#tab2Id">Home</a>
-            <a class="dropdown-item" href="#tab3Id">Om Mig</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#tab4Id">Opgaver</a>
+    <main id="main">
+      <!-- ================= HERO ================= -->
+      <section class="hero">
+        <div class="wrap">
+          <div>
+            <span class="status-pill"
+              ><i></i><span data-cfg="status"></span> ·
+              <span data-cfg="location"></span
+            ></span>
+            <h1>
+              <span class="l"><span data-cfg="first"></span></span
+              ><span class="l"><span data-cfg="last"></span></span>
+            </h1>
+            <p class="lede">
+              Software engineer working across <strong>C#/.NET</strong>,
+              <strong>Azure</strong> and <strong>CI/CD</strong> — with a
+              security mindset. I build systems that hold up under real
+              conditions, then look at them the way an attacker would.
+            </p>
+            <div class="ctas">
+              <a class="btn primary" href="#work"
+                >See selected work <span class="arr">→</span></a
+              >
+              <a class="btn" data-href="mailto" href="#">Get in touch</a>
+            </div>
+          </div>
+          <div class="scope" aria-hidden="true">
+            <div class="scope-top">
+              <span>CH1 · Live signal</span><span>Monitoring</span>
+            </div>
+            <div class="screen"><canvas id="scope"></canvas></div>
+            <div class="readouts">
+              <div>Experience<b>3+ yrs pro</b></div>
+              <div>Focus<b>backend</b></div>
+              <div>Certified<b>AZ-900</b></div>
+            </div>
+          </div>
         </div>
-    </li>
+      </section>
 
-    <li class="nav-item">
-        <a class="nav-link active" id="Om_MIG_Link" target="_parent" data-toggle="tab" href="#card2">Om Mig</a>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link active" href="#card1">Opgaver</a>
-    </li>
-</ul>
--->
-<!-- Tab panes --><!--
-<div class="tab-content">
-      <div class="tab-pane fade show active" id="tab1Id" role="tabpanel"></div>
-      <div class="tab-pane fade" id="tab2Id" role="tabpanel"></div>
-      <div class="tab-pane fade" id="tab3Id" role="tabpanel"></div>
-      <div class="tab-pane fade" id="tab4Id" role="tabpanel"></div>
-      <div class="tab-pane fade" id="tab5Id" role="tabpanel"></div>
-  </div>
+      <hr class="divider" />
 
-  <script>
-      $('#navId a').click(e => {
-          e.preventDefault();
-          $(this).tab('show');
-      });
-  </script>
-  -->
-<div id="container">
-    <h1 id="TestH1" class="display-2">Aksel Munch Fabricius</h1>
-    <img src="redigerert klistermærke.png" id="Home_Picture" alt="Billede af Aksel Munch Fabricius">
-    <p class="lead" id="HeaderParagraph">I'm a Developer</p>
-</div>
-<div id="Info">
-    <h5 id="Header2" class="display-3">About me</h5>
-    <ul class="list-unstyled">
-        <li id="Alder" ><label id="Integer">int</label> Age = 18;</li>
-        <li class="InfoCode"><label  style="color: rgba(33,20,152,255)">int</label> telephone = +4520876418;</li>
-        <li class="InfoCode"><label  style="color: rgba(33,20,152,255)">string</label> Mail = "<a href="mailto:akselfabricius@gmail.com">akselfabricius@gmail.com</a>";</li>
-        <li id="Stilling"><label id="stringLabel">string</label> Position = "studying as Eux Datateknikker with a special in programming
-            and apprenticeship seeking";</li>
-        <li id="StillingsArray"><label id="stringArray">string</label>[] Languages = {"Danish","English"};</li>
-        <li id="RealLanguages"><label id="RealLanguagesLabel" style="color: rgba(33,20,152,255)">string</label>[] RealLanguages = {"C#","HTML","CSS","Javascript"};</li>
-        <li class="InfoCode"><label  style="color: rgba(33,20,152,255)">var</label> certificates = { <label id="Comment1" style="position:relative; left:648px;  color: rgb(0,130,0)">//Javascript enabled</label> <br>
-            "'Responsive Web Design' from freecodecamp.org" : true,<br> 
-            "'Complete Beginner' from TryHackMe.com" : undefined,<label id="Comment2" style="position:relative;  left:316px; color: rgb(0,130,0)">//Ongoing</label><br>
-            "'JavaScript Algorithms and Data Structures' from freecodecamp.org" : undefined<label id="Comment3" style="position:relative;  left:100px; color: rgb(0,130,0)">//Ongoing</label><br>
-            };</li>
-        <li class="InfoCode"><label  style="color: rgba(33,20,152,255)">var</label> knowledgeAbout = ["MSSQL (Microsoft SQL Server)","CentOS","C# operator overloading","UML og OOAD","Windows Forms","WPF"]</li>
+      <!-- ================= WORK ================= -->
+      <section id="work">
+        <div class="wrap">
+          <div class="sec-head rv">
+            <div>
+              <span class="label"><b>01</b> — Selected work</span>
+              <h2>Case studies</h2>
+            </div>
+            <p>
+              Five projects, each with its own page: the problem, what I built,
+              the numbers, and the risks I designed around.
+            </p>
+          </div>
 
-        <li class="InfoCode" style="white-space:normal"><label  style="color: rgba(33,20,152,255)">var</label> SpareTime = "My spare time i mostly use to play computer with my friends. It was also one of the main things for me when i was on boarding school,
-            <br> where i was teamleader for one of the boarding school's esport team's both inside the game and outside the game.
-            <br> If i wasn't playing with my friends, i was following in Formel 1 or watching Youtube where i watch all from from videos about programming to videos about Games.
-            <br> However for the most part im watching something new that im trying to learn or a way to improve in games or programming.
-            <br> I also like to relax and just play board games with my family or play football or handball when the chance is there."
-        </li>
-    </ul>
-</div>
+          <div class="work">
+            <a class="card wide rv" href="projects/release-system.html">
+              <div style="display: flex; flex-direction: column">
+                <div class="top">
+                  <span class="num">01 / HBK</span
+                  ><span class="tagline">Release automation</span>
+                </div>
+                <h3>Release system</h3>
+                <p>
+                  Turned a 40+ step manual release into an Azure Pipeline that
+                  teams start with seven inputs — including retry and
+                  verification across 200+ individual SOAP calls.
+                </p>
+                <div class="tags">
+                  <span>C#</span><span>SOAP / WCF</span
+                  ><span>Azure Pipelines</span>
+                </div>
+                <span class="more"
+                  ><span class="arr">→</span>Read case study</span
+                >
+              </div>
+              <div class="side">
+                <div class="metric" data-count="40">0<small>+</small></div>
+                <div class="metric-label">
+                  manual steps → <b class="accent">0</b>
+                </div>
+              </div>
+            </a>
 
-<div id="TimeLine" style="text-align: center;">
-    <H6 class="display-3" style="padding-bottom: 30px;" >Education</H6>
-    <div class="d-flex" style="height: 325px; justify-content: center; ">
-    <div class="vr" style="right: 50px; color:  black; opacity: 100%; width: 5px;">
-        <div class="card-body_left-side" style="margin-top: 15px;">2021-   Praktikcenter <div class="card-title">TEC (Hvidore)</div></div>
-   <div class="card-body_right-side">2021-2021  Grundforløb 2 Data og kommunikation<div class="card-title">TEC (Ballerup)<div class="card-text">Afsluttende karakter i Data og kommunikation: 12</div></div></div>
-<div class="card-body_left-side">2020 – 2021 Grundforløb 1
-    <div class="card-text">TEC (Ballerup)</div>
-</div>    
-<div class="card-body_right-side">2019 – 2020 Efterskole/10. klasse
-    <div class="card-text">Nordsjællands Efterskole</div>
-</div>
-<div class="card-body_left-side">2019   9. klasses afgangseksamen<div class="card-text">Grønnemose skole</div></div>
-<div></div>
-</div>
-      
-   </div>
-   </div>
+            <a class="card rv d1" href="projects/legacy-modernisation.html">
+              <div class="top">
+                <span class="num">02 / HBK</span
+                ><span class="tagline">Modernisation</span>
+              </div>
+              <div class="metric" data-count="3000">0<small>+</small></div>
+              <div class="metric-label" style="margin-bottom: 22px">
+                unused references removed
+              </div>
+              <h3>Legacy modernisation</h3>
+              <p>
+                A Python dependency visualizer, a large reference cleanup, and
+                CI feedback cut from 40 to 25 minutes.
+              </p>
+              <span class="more"
+                ><span class="arr">→</span>Read case study</span
+              >
+            </a>
 
+            <a class="card rv d2" href="projects/ccp.html">
+              <div class="top">
+                <span class="num">03 / Final project</span
+                ><span class="tagline">Architect &amp; PM</span>
+              </div>
+              <div class="metric" data-count="3">0</div>
+              <div class="metric-label" style="margin-bottom: 22px">
+                channels unified · AI-assisted answers
+              </div>
+              <h3>CCP platform</h3>
+              <p>
+                A SaaS that unifies email, direct messages and a chatbot — with
+                a self-hosted RAG autocomplete that learns from solved cases.
+              </p>
+              <span class="more"
+                ><span class="arr">→</span>Read case study</span
+              >
+            </a>
 
+            <a class="card rv" href="projects/fraud-pipeline.html">
+              <div class="top">
+                <span class="num">04 / Personal</span
+                ><span class="badge live"><i></i>In progress</span>
+              </div>
+              <h3>Fraud detection pipeline</h3>
+              <p>
+                A fraud detection pipeline on Azure, defined end-to-end as
+                infrastructure as code with Bicep. Built in the open.
+              </p>
+              <div class="tags">
+                <span>Azure</span><span>Bicep</span><span>IaC</span>
+              </div>
+              <span class="more"
+                ><span class="arr">→</span>Follow the build</span
+              >
+            </a>
 
-
-<!--<img id="C-Sharp_img" src="C-Sharp.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="C-Sharp logo">-->
-<!--<img id="C-Sharp_img" src="C-Sharp.png" class="" style="vertical-align: middle" alt="C-Sharp logo">-->
-
-
-
-<div id="flex-container">
-    <h6 id="Projects_Header" class="display-3">Projects</h6>
-    <div class="d-flex position-relative" id="card1">
-        <img class="flex-shrink-0 me-3" src="C-Sharp.png" style="width: 235px"  alt="C Sharp picture">
-        <div class="card-body">
-            <h4 class="card-title">Three Cases in C#</h4>
-            <p class="card-text">We h0ad to make three classes with 3 different programs and combine them.</p>
-            <a href="https://github.com/Akselfab2003/Tre-Case-i-Progammering" target="_blank" class="stretched-link">Link to github</a>
+            <a class="card rv d1" href="projects/trading-bot.html">
+              <div class="top">
+                <span class="num">05 / Personal</span
+                ><span class="tagline">Quant</span>
+              </div>
+              <h3>Automated trading bot</h3>
+              <p>
+                Indicator-driven trading, backtesting and options pricing. The
+                case study includes a live Black–Scholes calculator.
+              </p>
+              <div class="tags">
+                <span>Python</span><span>Pandas</span><span>NumPy</span>
+              </div>
+              <span class="more"
+                ><span class="arr">→</span>Read case study</span
+              >
+            </a>
+          </div>
         </div>
-    </div>
+      </section>
 
-    <div class="d-flex position-relative" id="card2">
-        <img class="flex-shrink-0 me-3" src="C-Sharp.png" style="width: 235px" alt="C Sharp picture">
-        <div class="card-body" >
-            <h4 class="card-title">Driving log C#</h4>
-            <p class="card-text">We had to make a Winforms where you could write your details and it had to be saved in a sql server.</p>
-            <a href="https://github.com/Akselfab2003/Tur-Retur" target="_blank" class="stretched-link">Link to github</a>
+      <hr class="divider" />
+
+      <!-- ================= SKILLS ================= -->
+      <section id="skills">
+        <div class="wrap">
+          <div class="sec-head rv">
+            <div>
+              <span class="label"><b>02</b> — Capabilities</span>
+              <h2>Measuring range</h2>
+            </div>
+            <p>
+              Pick a skill and the needle shows where I'd honestly place it in
+              an interview.
+            </p>
+          </div>
+          <div class="gauge-wrap">
+            <div class="gauge-col rv">
+              <div class="gauge">
+                <svg
+                  viewBox="0 0 400 400"
+                  id="gauge"
+                  role="img"
+                  aria-label="Skill level gauge"
+                >
+                  <circle class="g-face" cx="200" cy="200" r="182" />
+                  <g id="g-zones"></g>
+                  <g id="g-ticks"></g>
+                  <text class="g-sub" x="200" y="300" id="g-cat">
+                    Backend · strong
+                  </text>
+                  <text class="g-read" x="200" y="340" id="g-name">C#</text>
+                  <g id="g-needle" style="transform-origin: 200px 200px">
+                    <polygon
+                      class="g-needle"
+                      points="196.5,206 203.5,206 200.8,54 199.2,54"
+                    />
+                    <polygon
+                      class="g-needle"
+                      points="197,206 203,206 200,230"
+                      opacity=".45"
+                    />
+                  </g>
+                  <circle class="g-hub" cx="200" cy="200" r="11" />
+                  <circle cx="200" cy="200" r="4" fill="var(--accent)" />
+                </svg>
+              </div>
+              <p class="gauge-note">
+                Modelled on a sensor dial I built at HBK — that one changed
+                colour when readings entered warning and alert ranges.
+              </p>
+            </div>
+            <div class="rv d1">
+              <div class="skill-groups" id="skill-list"></div>
+              <div class="legend">
+                <span><i style="background: var(--accent)"></i>Strong</span
+                ><span><i style="opacity: 0.65"></i>Working</span
+                ><span><i style="opacity: 0.25"></i>Familiar</span>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+      </section>
 
-    <div class="d-flex position-relative" id="card3">
-        <img class="flex-shrink-0 me-3" src="C-Sharp.png" style="width: 235px" alt="C Sharp picture">
-        <div class="card-body" >
-            <h4 class="card-title">Grocery list C#</h4>
-            <p class="card-text">We had to make a WPF application where you could choose witch items you wanted from a json document and we had to save the contents of the list in a json format and be able to print it.</p>
-            <a href="https://github.com/Akselfab2003/Indk-bsliste" target="_blank" class="stretched-link">Link to github</a>
+      <hr class="divider" />
+
+      <!-- ================= PROCESS ================= -->
+      <section id="process">
+        <div class="wrap">
+          <div class="sec-head rv">
+            <div>
+              <span class="label"><b>03</b> — How I work</span>
+              <h2>From plan to production</h2>
+            </div>
+            <p>
+              The same loop whether I'm working with a team or with AI coding
+              agents.
+            </p>
+          </div>
+          <div class="proc">
+            <div class="step rv">
+              <span class="n">01</span>
+              <h4>Plan first</h4>
+              <p>
+                Agree on the approach before code changes — with people, and
+                with AI agents in plan mode.
+              </p>
+            </div>
+            <div class="step rv d1">
+              <span class="n">02</span>
+              <h4>Challenge it</h4>
+              <p>
+                Question the plan until it holds. Decisions are written down as
+                ADRs with success criteria.
+              </p>
+            </div>
+            <div class="step rv d2">
+              <span class="n">03</span>
+              <h4>Gate it</h4>
+              <p>
+                Unit, integration and E2E tests in CI, merges blocked until they
+                pass, review on every PR.
+              </p>
+            </div>
+            <div class="step rv d3">
+              <span class="n">04</span>
+              <h4>Attack it</h4>
+              <p>
+                Review it like an attacker would: auth, input handling, secrets,
+                and paths nobody meant to expose.
+              </p>
+            </div>
+            <div class="step rv d3">
+              <span class="n">05</span>
+              <h4>Measure it</h4>
+              <p>
+                Load tests with K6, profiling, and logs, metrics and traces
+                through OpenTelemetry.
+              </p>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
-<br>
+      </section>
 
-<ul class="nav" id="navId">
-    <li class="nav-item">
-        <a class="nav-link active" target="_parent" href="#TestH1" >Home</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link active" id="Om_MIG_Link" href="#Info">About Me</a>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link active" href="#TimeLine">Education</a>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link active" href="#flex-container">Projects</a>
-    </li>
-    
-</ul>
+      <hr class="divider" />
+
+      <!-- ================= EXPERIENCE ================= -->
+      <section id="experience">
+        <div class="wrap">
+          <div class="sec-head rv">
+            <div>
+              <span class="label"><b>04</b> — Experience</span>
+              <h2>Where I've worked</h2>
+            </div>
+            <p>
+              3+ years professionally, on top of a longer programming background
+              through education and personal projects.
+            </p>
+          </div>
+          <div class="xp rv">
+            <div class="xp-row">
+              <span class="label">Latest</span>
+              <div>
+                <div class="who">HBK</div>
+                <div class="role">Apprentice · Datatekniker, programming</div>
+              </div>
+              <p>
+                Hottinger Brüel &amp; Kjær's software factory. Release
+                automation, CI/CD optimisation and legacy upgrades — plus
+                product work, including a dial component that displays sensor
+                data and highlights readings in warning and alert ranges.
+              </p>
+            </div>
+            <div class="xp-row">
+              <span class="label">Previously</span>
+              <div>
+                <div class="who">Emporio Technologies</div>
+                <div class="role">Platform &amp; customer support</div>
+              </div>
+              <p>
+                Supported the platform and its customers directly, around
+                e-procurement concepts such as punch-out, approval flows and
+                supplier catalogues. Close contact with the people using the
+                software.
+              </p>
+            </div>
+            <div class="xp-row">
+              <span class="label">Education</span>
+              <div>
+                <div class="who">Datatekniker</div>
+                <div class="role">Speciale i programmering</div>
+              </div>
+              <p>
+                Danish IT apprenticeship on the programming track. Cybersecurity
+                courses and competitions on the side.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- ================= CERTIFICATIONS ================= -->
+      <section id="certifications">
+        <div class="wrap">
+          <div class="sec-head rv">
+            <div>
+              <span class="label"><b>05</b> — Certifications</span>
+              <h2>Certified</h2>
+            </div>
+            <p>Verified credentials. More on the way.</p>
+          </div>
+          <div class="certs" id="cert-list"></div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- ================= CONTACT ================= -->
+      <section id="contact" class="contact">
+        <div class="wrap">
+          <span class="label rv" style="display: block; margin-bottom: 22px"
+            ><b class="accent">06</b> — Contact</span
+          >
+          <h2 class="rv">
+            <a data-href="mailto" href="#">Let's<br />talk.</a>
+          </h2>
+          <a class="email rv" data-href="mailto" href="#"
+            ><span data-cfg="email"></span> ↗</a
+          >
+          <div
+            class="ctas rv"
+            style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px"
+          >
+            <a
+              class="btn"
+              data-href="github"
+              href="#"
+              target="_blank"
+              rel="noopener"
+              >GitHub ↗</a
+            >
+            <a
+              class="btn"
+              data-href="linkedin"
+              href="#"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn ↗</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="foot"></div>
+    <script src="assets/site.js"></script>
+  </body>
 </html>

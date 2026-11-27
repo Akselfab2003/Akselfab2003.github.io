@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Legacy modernisation — {name}</title>
+    <meta
+      name="description"
+      content="Case study: dependency visualisation, 3,000+ unused references removed and faster CI feedback at HBK."
+    />
+    <script>
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/style.css" />
+  </head>
+  <body data-page="work" data-base="../">
+    <div id="nav"></div>
+    <main id="main">
+      <section class="cs-hero">
+        <div class="wrap">
+          <nav class="crumbs">
+            <a href="../index.html#work">Work</a><span>/</span><span>02</span>
+          </nav>
+          <span class="label rv"
+            >Case study · HBK — Hottinger Brüel &amp; Kjær</span
+          >
+          <h1 class="rv" style="margin-top: 14px">
+            Legacy <span class="o">modern&shy;isation</span>
+          </h1>
+          <p class="lede rv d1">
+            Upgrading legacy systems so developers could work faster: making
+            hidden dependencies visible, removing thousands of references nobody
+            used, and shortening the wait for CI feedback.
+          </p>
+          <dl class="cs-meta rv d2">
+            <div>
+              <dt>Role</dt>
+              <dd>Developer (apprentice)</dd>
+            </div>
+            <div>
+              <dt>Context</dt>
+              <dd>Legacy .NET systems</dd>
+            </div>
+            <div>
+              <dt>Stack</dt>
+              <dd>Python · .NET · CI/CD</dd>
+            </div>
+            <div>
+              <dt>Focus</dt>
+              <dd>Code quality &amp; developer speed</dd>
+            </div>
+          </dl>
+          <div class="metrics" style="--cols: 3">
+            <div class="stat rv">
+              <div class="v" data-count="3000">0<small>+</small></div>
+              <div class="k">unused project &amp; DLL references removed</div>
+            </div>
+            <div class="stat rv d1">
+              <div class="v">
+                <span class="from">40</span><span data-count="25">0</span
+                ><small>min</small>
+              </div>
+              <div class="k">time to CI feedback</div>
+            </div>
+            <div class="stat rv d2">
+              <div class="v">−37.5<small>%</small></div>
+              <div class="k">wait on every push</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <article class="cs-body rv">
+          <span class="label">The problem<b>Before</b></span>
+          <div class="prose">
+            <p>
+              The legacy .NET solutions carried a large number of old project
+              and DLL references that were no longer used. Removing them safely
+              meant first knowing what actually depended on what. At the same
+              time, developers waited <strong>40 minutes</strong> for the CI
+              pipeline to tell them whether a change was good.
+            </p>
+          </div>
+        </article>
+
+        <div class="visual rv" id="graphvis">
+          <div class="v-head">
+            <h3>Seeing the dependencies</h3>
+            <div class="ctrl">
+              <button class="primary" id="prune">
+                Remove unused references</button
+              ><button id="reset">Reset</button>
+            </div>
+          </div>
+          <canvas class="graph" id="graph"></canvas>
+          <p class="caption">
+            Illustration of the idea behind the tool: projects as nodes,
+            references as edges. Faded nodes are referenced by nothing that
+            ships. Not real HBK data.
+          </p>
+        </div>
+
+        <article class="cs-body rv">
+          <span class="label">What I built<b>Dependency x-ray</b></span>
+          <div class="prose">
+            <p>
+              I built a <strong>Python dependency visualizer</strong> that
+              identified the dependencies between .NET projects and drew them as
+              a node graph. Once the structure was visible, it was possible to
+              see which references actually mattered.
+            </p>
+            <p>
+              Using it as part of the legacy upgrade, I helped remove
+              <strong>more than 3,000 old and unused references</strong> — a mix
+              of project and DLL references — improving overall code quality.
+            </p>
+          </div>
+        </article>
+
+        <article class="cs-body rv">
+          <span class="label">CI/CD<b>Feedback loop</b></span>
+          <div class="prose">
+            <p>
+              In the same upgrade work I found a way to speed up the CI/CD
+              pipeline, cutting the time before a developer gets feedback on a
+              change <strong>from 40 to 25 minutes</strong>.
+            </p>
+            <div class="bars" id="bars" style="margin-top: 28px">
+              <div class="bar">
+                <span>Before</span>
+                <div class="track"><div class="fill" data-w="100"></div></div>
+                <span>40 min</span>
+              </div>
+              <div class="bar after">
+                <span>After</span>
+                <div class="track"><div class="fill" data-w="62.5"></div></div>
+                <span>25 min</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="cs-body rv">
+          <span class="label">Also at HBK<b>Product work</b></span>
+          <div class="prose">
+            <p>
+              Not all of it was infrastructure. I also built a
+              <strong>dial component</strong> for one of the products — it
+              displays data from sensors and other sources, and changes colour
+              when values move into a warning or alert range so critical
+              readings stand out. The gauge on the front page of this site is
+              modelled on it.
+            </p>
+          </div>
+        </article>
+
+        <article class="cs-body rv">
+          <span class="label">Risk &amp; reliability<b>Designed for</b></span>
+          <div class="risk">
+            <span class="label">Less surface, faster checks</span>
+            <p>
+              Every unused reference is code that ships but that nobody watches.
+              Removing 3,000+ of them means fewer things to patch, audit and
+              trip over.
+            </p>
+            <p>
+              A faster pipeline matters too: checks people don't have to wait 40
+              minutes for are checks they actually run.
+            </p>
+          </div>
+        </article>
+
+        <nav class="next" id="next" data-slug="legacy-modernisation"></nav>
+      </div>
+    </main>
+    <div id="foot"></div>
+    <script src="../assets/site.js"></script>
+    <script>
+      /* bars */
+      document
+        .getElementById("bars")
+        .closest(".rv")
+        .addEventListener("reveal", () =>
+          document
+            .querySelectorAll("#bars .fill")
+            .forEach((f) => (f.style.width = f.dataset.w + "%")),
+        );
+
+      /* dependency graph (illustrative) */
+      (function () {
+        const cv = document.getElementById("graph"),
+          cx = cv.getContext("2d"),
+          dpr = Math.min(devicePixelRatio || 1, 2);
+        let W = 0,
+          H = 0,
+          nodes = [],
+          edges = [],
+          prune = 0,
+          target = 0;
+        const css = (v) =>
+          getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+        function size() {
+          const r = cv.getBoundingClientRect();
+          W = r.width;
+          H = r.height;
+          cv.width = W * dpr;
+          cv.height = H * dpr;
+          cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+        function build() {
+          nodes = [];
+          edges = [];
+          let seed = 7;
+          const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+          const live = 26,
+            dead = 34;
+          for (let i = 0; i < live + dead; i++)
+            nodes.push({
+              x: W * (0.1 + 0.8 * rnd()),
+              y: H * (0.12 + 0.76 * rnd()),
+              vx: 0,
+              vy: 0,
+              dead: i >= live,
+              r: i < 4 ? 9 : i < live ? 6 : 4.5,
+            });
+          for (let i = 1; i < live; i++) edges.push([i, Math.floor(rnd() * i)]);
+          for (let i = 0; i < 10; i++)
+            edges.push([Math.floor(rnd() * live), Math.floor(rnd() * live)]);
+          for (let i = live; i < live + dead; i++) {
+            edges.push([Math.floor(rnd() * live), i]);
+            if (rnd() < 0.4) edges.push([i, live + Math.floor(rnd() * dead)]);
+          }
+        }
+        function tick() {
+          for (const a of nodes) {
+            a.vx += (W / 2 - a.x) * 0.0008;
+            a.vy += (H / 2 - a.y) * 0.0012;
+          }
+          for (let i = 0; i < nodes.length; i++)
+            for (let j = i + 1; j < nodes.length; j++) {
+              const a = nodes[i],
+                b = nodes[j],
+                dx = a.x - b.x,
+                dy = a.y - b.y,
+                d2 = dx * dx + dy * dy + 0.01;
+              if (d2 < 9000) {
+                const f = 60 / d2;
+                a.vx += dx * f;
+                a.vy += dy * f;
+                b.vx -= dx * f;
+                b.vy -= dy * f;
+              }
+            }
+          for (const [i, j] of edges) {
+            const a = nodes[i],
+              b = nodes[j],
+              dx = b.x - a.x,
+              dy = b.y - a.y,
+              d = Math.hypot(dx, dy) || 1,
+              f = (d - 70) * 0.004;
+            a.vx += (dx / d) * f * d * 0.02;
+            a.vy += (dy / d) * f * d * 0.02;
+            b.vx -= (dx / d) * f * d * 0.02;
+            b.vy -= (dy / d) * f * d * 0.02;
+          }
+          for (const a of nodes) {
+            a.vx *= 0.82;
+            a.vy *= 0.82;
+            a.x = Math.max(12, Math.min(W - 12, a.x + a.vx));
+            a.y = Math.max(12, Math.min(H - 12, a.y + a.vy));
+          }
+        }
+        function draw() {
+          prune += (target - prune) * 0.04;
+          tick();
+          cx.clearRect(0, 0, W, H);
+          const ink = css("--ink"),
+            mute = css("--mute"),
+            ac = css("--accent");
+          for (const [i, j] of edges) {
+            const a = nodes[i],
+              b = nodes[j],
+              dead = a.dead || b.dead;
+            cx.globalAlpha = dead ? 0.55 * (1 - prune) : 0.35;
+            cx.strokeStyle = dead ? ac : mute;
+            cx.lineWidth = 1;
+            cx.beginPath();
+            cx.moveTo(a.x, a.y);
+            cx.lineTo(b.x, b.y);
+            cx.stroke();
+          }
+          for (const n of nodes) {
+            cx.globalAlpha = n.dead ? 1 - prune : 1;
+            cx.fillStyle = n.dead ? ac : ink;
+            cx.beginPath();
+            cx.arc(n.x, n.y, n.dead ? n.r * (1 - prune * 0.6) : n.r, 0, 7);
+            cx.fill();
+          }
+          cx.globalAlpha = 1;
+          cx.font = "500 12px 'IBM Plex Mono', monospace";
+          cx.fillStyle = mute;
+          cx.fillText(
+            prune > 0.5
+              ? "Unused references removed"
+              : "Unused references (accent) mixed into the live graph",
+            14,
+            H - 14,
+          );
+          requestAnimationFrame(draw);
+        }
+        new ResizeObserver(() => {
+          const first = !W;
+          size();
+          if (first) build();
+        }).observe(cv);
+        size();
+        build();
+        draw();
+        document.getElementById("prune").onclick = () => (target = 1);
+        document.getElementById("reset").onclick = () => (target = 0);
+      })();
+    </script>
+  </body>
+</html>

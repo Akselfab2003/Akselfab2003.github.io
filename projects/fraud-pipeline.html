@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fraud detection pipeline — {name}</title>
+    <meta
+      name="description"
+      content="Work in progress: a fraud detection pipeline on Azure, built as infrastructure as code with Bicep."
+    />
+    <script>
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <style>
+      .feed {
+        font-family: var(--mono);
+        font-size: 13px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--bg);
+        overflow: hidden;
+      }
+      .feed .row {
+        display: grid;
+        grid-template-columns: 90px 1fr 110px 120px 90px;
+        gap: 12px;
+        padding: 10px 16px;
+        border-bottom: 1px solid var(--line);
+        align-items: center;
+        animation: slide 0.5s var(--ease);
+      }
+      .feed .row.head {
+        color: var(--mute);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        animation: none;
+      }
+      .feed .row.flag {
+        background: var(--accent-soft);
+      }
+      .feed .row.flag .st {
+        color: var(--accent);
+      }
+      .feed .meter {
+        height: 5px;
+        background: var(--bg-3);
+        border-radius: 9px;
+        overflow: hidden;
+      }
+      .feed .meter i {
+        display: block;
+        height: 100%;
+        background: var(--ink-2);
+      }
+      .feed .row.flag .meter i {
+        background: var(--accent);
+      }
+      @keyframes slide {
+        from {
+          opacity: 0;
+          transform: translateY(-8px);
+        }
+      }
+      @media (max-width: 700px) {
+        .feed .row {
+          grid-template-columns: 70px 1fr 80px;
+        }
+        .feed .row > :nth-child(3),
+        .feed .row > :nth-child(4) {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body data-page="work" data-base="../">
+    <div id="nav"></div>
+    <main id="main">
+      <section class="cs-hero">
+        <div class="wrap">
+          <nav class="crumbs">
+            <a href="../index.html#work">Work</a><span>/</span><span>04</span>
+          </nav>
+          <span class="badge live rv"
+            ><i></i>In progress · built in the open</span
+          >
+          <h1 class="rv" style="margin-top: 18px">
+            Fraud <span class="o">detection</span> pipeline
+          </h1>
+          <p class="lede rv d1">
+            A personal project to put my Azure knowledge into practice: a fraud
+            detection pipeline on Azure, with all infrastructure defined as code
+            in Bicep.
+          </p>
+          <dl class="cs-meta rv d2">
+            <div>
+              <dt>Type</dt>
+              <dd>Personal portfolio project</dd>
+            </div>
+            <div>
+              <dt>Cloud</dt>
+              <dd>Microsoft Azure</dd>
+            </div>
+            <div>
+              <dt>Infrastructure</dt>
+              <dd>Bicep (IaC)</dd>
+            </div>
+            <div>
+              <dt>Current step</dt>
+              <dd class="accent">1.2 · Data &amp; messaging</dd>
+            </div>
+          </dl>
+          <div
+            class="ctas rv"
+            style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px"
+          >
+            <a
+              class="btn primary"
+              data-href="fraudRepo"
+              href="#"
+              target="_blank"
+              rel="noopener"
+              >Follow the repo on GitHub <span class="arr">↗</span></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <div class="visual rv" id="feedvis">
+          <div class="v-head">
+            <h3>What it's for</h3>
+            <span class="label">Simulated transactions</span>
+          </div>
+          <div class="feed" id="feed">
+            <div class="row head">
+              <span>Time</span><span>Transaction</span><span>Amount</span
+              ><span>Risk score</span><span>Status</span>
+            </div>
+          </div>
+          <p class="caption">
+            Simulated data to illustrate the goal of the pipeline — scoring
+            transactions and flagging anomalies. Not output from the current
+            build.
+          </p>
+        </div>
+
+        <article class="cs-body rv">
+          <span class="label">Why<b>Motivation</b></span>
+          <div class="prose">
+            <p>
+              I passed <strong>AZ-900</strong> in October 2026 and wanted
+              hands-on Azure work to match it — something with real moving parts
+              rather than a tutorial app. Fraud detection is a good fit: it
+              needs data, messaging and processing working together, and it's a
+              problem where thinking like an attacker is part of the job.
+            </p>
+          </div>
+        </article>
+
+        <article class="cs-body rv">
+          <span class="label">Progress<b>Build log</b></span>
+          <div class="prose">
+            <div class="road" id="road"></div>
+          </div>
+        </article>
+
+        <article class="cs-body rv">
+          <span class="label">Approach<b>Principles</b></span>
+          <div class="prose">
+            <ul>
+              <li>
+                <strong>Everything as code.</strong> Infrastructure is defined
+                in Bicep, so the whole environment can be reviewed, versioned
+                and recreated.
+              </li>
+              <li>
+                <strong>Built in the open.</strong> The code lives on GitHub, so
+                progress is visible step by step.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="cs-body rv">
+          <span class="label">Risk &amp; reliability<b>Perspective</b></span>
+          <div class="risk">
+            <span class="label">Attacker thinking, inverted</span>
+            <p>
+              Most of my security work is about how a system can be broken. This
+              project turns that around: model what fraudulent behaviour looks
+              like, then build the system that catches it.
+            </p>
+          </div>
+        </article>
+
+        <nav class="next" id="next" data-slug="fraud-pipeline"></nav>
+      </div>
+    </main>
+    <div id="foot"></div>
+    <script src="../assets/site.js"></script>
+    <script>
+      /* ---- Build log: edit this list as the project moves forward ----
+   state: "done" | "now" | "next"                                  */
+      const ROADMAP = [
+        {
+          id: "1.2",
+          title: "Data and messaging in Bicep",
+          note: "Defining the data and messaging resources as code.",
+          state: "now",
+        },
+        {
+          id: "→",
+          title: "Next steps",
+          note: "Follow along in the GitHub repository.",
+          state: "next",
+        },
+      ];
+      document.getElementById("road").innerHTML = ROADMAP.map(
+        (r) =>
+          `<div class="it ${r.state}"><b>${r.id}</b><span>${r.title}</span><em>${r.note}</em></div>`,
+      ).join("");
+
+      /* ---- simulated transaction feed ---- */
+      const feed = document.getElementById("feed");
+      const kinds = [
+        "Card payment",
+        "Online purchase",
+        "Transfer",
+        "ATM withdrawal",
+        "Subscription",
+        "Card payment",
+        "Refund",
+      ];
+      const cities = ["Copenhagen", "Aarhus", "Odense", "Aalborg", "Roskilde"];
+      const reasons = [
+        "unusual amount",
+        "new device",
+        "velocity spike",
+        "odd hour",
+      ];
+      function row() {
+        const flag = Math.random() < 0.14;
+        const score = flag ? 0.78 + Math.random() * 0.21 : Math.random() * 0.45;
+        const amt = flag
+          ? 2000 + Math.random() * 18000
+          : 20 + Math.random() * 900;
+        const now = new Date(),
+          t = now.toTimeString().slice(0, 8);
+        const r = document.createElement("div");
+        r.className = "row" + (flag ? " flag" : "");
+        r.innerHTML = `<span>${t}</span><span>${kinds[Math.floor(Math.random() * kinds.length)]} · ${cities[Math.floor(Math.random() * 5)]}${flag ? ` · <span class="accent">${reasons[Math.floor(Math.random() * 4)]}</span>` : ""}</span>
+    <span>${amt.toFixed(2)} kr</span><span><div class="meter"><i style="width:${score * 100}%"></i></div></span><span class="st">${flag ? "Flagged" : "OK"}</span>`;
+        feed.children[0].after(r);
+        while (feed.children.length > 9) feed.lastElementChild.remove();
+      }
+      for (let i = 0; i < 7; i++) row();
+      document
+        .getElementById("feedvis")
+        .addEventListener("reveal", () => setInterval(row, 1400));
+    </script>
+  </body>
+</html>

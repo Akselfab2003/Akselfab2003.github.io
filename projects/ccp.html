@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CCP platform — {name}</title>
+    <meta
+      name="description"
+      content="Case study: a SaaS platform unifying company communication, with a self-hosted RAG autocomplete."
+    />
+    <script>
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/style.css" />
+  </head>
+  <body data-page="work" data-base="../">
+    <div id="nav"></div>
+    <main id="main">
+      <section class="cs-hero">
+        <div class="wrap">
+          <nav class="crumbs">
+            <a href="../index.html#work">Work</a><span>/</span><span>03</span>
+          </nav>
+          <span class="label rv"
+            >Case study · Apprenticeship final project · Team project</span
+          >
+          <h1 class="rv" style="margin-top: 14px">
+            CCP <span class="o">platform</span>
+          </h1>
+          <p class="lede rv d1">
+            A SaaS platform that brings a company's communication channels into
+            one place — and learns from earlier cases to suggest answers to new
+            ones.
+          </p>
+          <dl class="cs-meta rv d2">
+            <div>
+              <dt>Role</dt>
+              <dd>Solution architect &amp; project manager</dd>
+            </div>
+            <div>
+              <dt>I built</dt>
+              <dd>Chatbot · AI autocomplete</dd>
+            </div>
+            <div>
+              <dt>Stack</dt>
+              <dd>.NET · Blazor · SignalR · PostgreSQL · Docker</dd>
+            </div>
+            <div>
+              <dt>AI</dt>
+              <dd>RAG · embeddings · Ollama (self-hosted)</dd>
+            </div>
+          </dl>
+          <div class="metrics" style="--cols: 3">
+            <div class="stat rv">
+              <div class="v" data-count="3">0</div>
+              <div class="k">channels in one platform</div>
+            </div>
+            <div class="stat rv d1">
+              <div class="v" data-count="2">0</div>
+              <div class="k">roles: architect + project manager</div>
+            </div>
+            <div class="stat rv d2">
+              <div class="v" data-count="100">0<small>%</small></div>
+              <div class="k">of PRs code-reviewed</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <article class="cs-body rv">
+          <span class="label">The problem<b>Context</b></span>
+          <div class="prose">
+            <p>
+              Companies talk to their customers through several channels at
+              once, and the knowledge from solved cases stays buried in old
+              threads. The goal was a single platform that integrates
+              <strong>email</strong>,
+              <strong>direct messages in the application</strong> and an
+              <strong>embedded chatbot</strong> — and puts the answers to
+              earlier problems to work.
+            </p>
+          </div>
+        </article>
+
+        <div class="visual rv" id="archvis">
+          <div class="v-head">
+            <h3>Architecture at a glance</h3>
+            <span class="label">Simplified</span>
+          </div>
+          <div class="arch">
+            <div class="col">
+              <span class="label">Channels</span>
+              <div class="box"><b>Email</b><span>integrated channel</span></div>
+              <div class="box">
+                <b>Direct messages</b><span>in-app, real-time via SignalR</span>
+              </div>
+              <div class="box mine">
+                <b>Embedded chatbot</b><span>embedded in the platform</span>
+              </div>
+            </div>
+            <div class="col">
+              <span class="label">Platform</span>
+              <div class="box core">
+                <b>Unified inbox</b><span>.NET microservices · Blazor UI</span>
+              </div>
+              <div class="box">
+                <b>Typed SDKs</b><span>Kiota-generated client per service</span>
+              </div>
+              <div class="box">
+                <b>PostgreSQL</b><span>application data · deployed</span>
+              </div>
+            </div>
+            <div class="col">
+              <span class="label">AI autocomplete · built by me</span>
+              <div class="rag" id="rag">
+                <div class="box">
+                  <b>Extract meaning</b><span>LLM reads the new message</span>
+                </div>
+                <div class="box">
+                  <b>Embed</b><span>stored as a vector embedding</span>
+                </div>
+                <div class="box">
+                  <b>Retrieve</b
+                  ><span>most similar previously solved cases</span>
+                </div>
+                <div class="box mine">
+                  <b>Suggest</b
+                  ><span>their solutions → LLM → draft answer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="caption">
+            The model ran self-hosted via Ollama. Services were containerised
+            with Docker; planning in GitHub Projects, pipelines in GitHub
+            Actions.
+          </p>
+        </div>
+
+        <article class="cs-body rv">
+          <span class="label">My role<b>Architect &amp; PM</b></span>
+          <div class="prose">
+            <p>
+              As <strong>solution architect</strong> I designed how the system
+              fit together: a microservice backend, a UI built partly in Blazor,
+              and real-time updates over SignalR. To keep the frontend and
+              backend in sync, I generated a
+              <strong>strongly typed SDK for each service with Kiota</strong>,
+              so the UI talks to the API through typed HTTP clients instead of
+              hand-written calls.
+            </p>
+            <p>
+              As <strong>project manager</strong> I ran planning in GitHub
+              Projects. Every pull request went through code review, and CI in
+              GitHub Actions ran the tests.
+            </p>
+          </div>
+        </article>
+
+        <article class="cs-body rv">
+          <span class="label">What I built<b>AI features</b></span>
+          <div class="prose">
+            <p>
+              I was responsible for the <strong>embedded chatbot</strong> and
+              the <strong>AI autocomplete</strong>. The autocomplete is a
+              retrieval-augmented (RAG) pipeline:
+            </p>
+            <ul>
+              <li>
+                An LLM extracts the meaning of an incoming message, which is
+                stored as a vector embedding.
+              </li>
+              <li>
+                The embedding is used to find the most relevant earlier cases
+                that were already solved.
+              </li>
+              <li>
+                Those solutions are passed to the LLM as the basis for a
+                suggested answer.
+              </li>
+            </ul>
+            <p>
+              The result: the system learns from previous messages and suggests
+              responses based on how similar issues were solved before.
+            </p>
+          </div>
+        </article>
+
+        <article class="cs-body rv">
+          <span class="label">Risk &amp; reliability<b>Designed for</b></span>
+          <div class="risk">
+            <span class="label">Where does the data go?</span>
+            <p>
+              That's the first question for any AI feature built on customer
+              messages. The model ran
+              <strong>self-hosted through Ollama</strong> — on our own
+              infrastructure rather than a third-party API.
+            </p>
+            <p>
+              Typed, generated SDKs also remove a whole class of mismatches
+              between frontend and backend before they reach production.
+            </p>
+          </div>
+        </article>
+
+        <nav class="next" id="next" data-slug="ccp"></nav>
+      </div>
+    </main>
+    <div id="foot"></div>
+    <script src="../assets/site.js"></script>
+    <script>
+      /* walk the RAG steps */
+      const steps = [...document.querySelectorAll("#rag .box")];
+      let k = 0;
+      document.getElementById("archvis").addEventListener("reveal", () => {
+        setInterval(() => {
+          const b = steps[k++ % steps.length];
+          b.classList.remove("pulse");
+          void b.offsetWidth;
+          b.classList.add("pulse");
+        }, 900);
+      });
+    </script>
+  </body>
+</html>
