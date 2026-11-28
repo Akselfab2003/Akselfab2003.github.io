@@ -442,10 +442,16 @@ section {
   font-family: var(--display);
   font-weight: 800;
   text-transform: uppercase;
-  font-size: clamp(36px, 4vw, 56px);
-  line-height: .9;
+  font-size: clamp(24px, 4vw, 56px);
+  line-height: .95;
   text-decoration: none;
-  display: inline-block
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: break-word
+}
+
+.foot .wrap>* {
+  min-width: 0
 }
 
 .foot .big:hover {
@@ -1205,9 +1211,11 @@ section {
 
 .contact .email {
   font-family: var(--mono);
-  font-size: clamp(15px, 1.6vw, 20px);
+  font-size: clamp(14px, 1.6vw, 20px);
   margin-top: 20px;
   display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   color: var(--ink-2)
 }
 
